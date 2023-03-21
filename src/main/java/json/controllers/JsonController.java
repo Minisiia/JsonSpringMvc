@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.UUID;
 
-@RestController
+@Controller
 public class JsonController {
     private CurrencyDao currencyDao;
     private final Gson gson;
@@ -26,6 +26,7 @@ public class JsonController {
     }
 
     @GetMapping(value = "/uuid", produces=MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     public String getRandomUUID() {
         UUID uuid = UUID.randomUUID();
         JsonObject jsonObject = new JsonObject();
