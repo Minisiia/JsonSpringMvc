@@ -25,7 +25,7 @@ public class JsonController {
         this.gson = gson;
     }
 
-    @GetMapping(value = "/uuid", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/uuid", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getRandomUUID() {
         UUID uuid = UUID.randomUUID();
@@ -34,14 +34,14 @@ public class JsonController {
         return gson.toJson(jsonObject);
     }
 
-    @GetMapping(value = "/exchange/{currency}", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/exchange/{currency}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getCurrentCurrency(@PathVariable("currency") String currency) throws IOException {
         return currencyDao.getCurrentCurrency(currency);
 
     }
 
-    @GetMapping(value = "/exchange", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/exchange", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getRandomCurrency() throws IOException {
         return currencyDao.getRandomCurrency();

@@ -16,7 +16,8 @@ import java.util.Random;
 @Component
 public class CurrencyDao {
     private final Gson gson;
-@Autowired
+
+    @Autowired
     public CurrencyDao(Gson gson) {
         this.gson = gson;
     }
@@ -31,10 +32,8 @@ public class CurrencyDao {
         return currencies;
     }
 
-   public String getCurrentCurrency(String currency) throws IOException {
-
-
-      Currency[] currencies = getAllCurrency();
+    public String getCurrentCurrency(String currency) throws IOException {
+        Currency[] currencies = getAllCurrency();
         String resultCurrency = "no such currency";
         for (int i = 0; i < currencies.length; i++) {
             if (currencies[i].getCurrencyAbbr().equals(currency))
